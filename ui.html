@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kullanıcı Arayüzü</title>
+</head>
+<body>
+    <h1>Kullanıcı Arayüzü</h1>
+
+    <form action="/" method="post">
+        <label for="il">İl</label>
+        <input type="text" name="il" id="il" />
+
+        <label for="ilce">İlçe</label>
+        <input type="text" name="ilce" id="ilce" />
+
+        <label for="mahalle">Mahalle</label>
+        <input type="text" name="mahalle" id="mahalle" />
+
+        <label for="kurulu_guc">Kurulu güç</label>
+        <input type="number" name="kurulu_guc" id="kurulu_guc" />
+
+        <label for="talep_guc">Talep güç</label>
+        <input type="number" name="talep_guc" id="talep_guc" />
+
+        <label for="mesken_guc">Mesken güç</label>
+        <input type="number" name="mesken_guc" id="mesken_guc" />
+
+        <label for="mesken_disi_guc">Mesken dışı güç</label>
+        <input type="number" name="mesken_disi_guc" id="mesken_disi_guc" />
+
+        <input type="submit" value="Gönder" />
+    </form>
+
+    <div id="yanit"></div>
+</body>
+</html>
