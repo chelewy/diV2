@@ -7,11 +7,17 @@
         body {
             font-family: sans-serif;
             font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
         }
 
         .form-container {
             width: 500px;
             margin: 0 auto;
+            text-align: left;
         }
 
         .form-row {
@@ -20,16 +26,18 @@
 
         label {
             font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
         }
 
         input {
-            width: 100%;
+            width: calc(100% - 12px);
             padding: 5px;
             border: 1px solid #ccc;
         }
 
         input[type="submit"] {
-            width: 100px;
+            width: 100%;
             margin-top: 10px;
             background-color: #000;
             color: #fff;
@@ -37,10 +45,11 @@
             cursor: pointer;
         }
 
-        .karekod {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto;
+        #yanit {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            text-align: left;
         }
     </style>
 </head>
@@ -49,12 +58,6 @@
 
     <div class="form-container">
         <form action="/" method="post">
-            <div class="form-row">
-                <div class="karekod">
-                    <img src="https://chelewy.github.io/diV2/qrcode.php?url=https://chelewy.github.io/diV2/ui.html" alt="QR Kodu" />
-                </div>
-            </div>
-
             <div class="form-row">
                 <label for="il">İl</label>
                 <input type="text" name="il" id="il" />
@@ -97,5 +100,14 @@
     </div>
 
     <div id="yanit"></div>
+
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script>
+        var qrcode = new QRCode(document.getElementById("yanit"), {
+            text: "https://chelewy.github.io/diV2/ui.html",
+            width: 128,
+            height: 128
+        });
+    </script>
 </body>
 </html>
