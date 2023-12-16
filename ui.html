@@ -7,30 +7,48 @@
 <body>
     <h1>Kullanıcı Arayüzü</h1>
 
-    <form action="/" method="post">
-        <label for="il">İl</label>
-        <input type="text" name="il" id="il" />
+    <div class="form-container">
+        <form action="/" method="post">
+            <div class="form-row">
+                <label for="il">İl</label>
+                <input type="text" name="il" id="il" />
+            </div>
 
-        <label for="ilce">İlçe</label>
-        <input type="text" name="ilce" id="ilce" />
+            <div class="form-row">
+                <label for="ilce">İlçe</label>
+                <input type="text" name="ilce" id="ilce" />
+            </div>
 
-        <label for="mahalle">Mahalle</label>
-        <input type="text" name="mahalle" id="mahalle" />
+            <div class="form-row">
+                <label for="mahalle">Mahalle</label>
+                <input type="text" name="mahalle" id="mahalle" />
+            </div>
 
-        <label for="kurulu_guc">Kurulu güç</label>
-        <input type="number" name="kurulu_guc" id="kurulu_guc" />
+            <div class="form-row">
+                <label for="kurulu_guc">Kurulu güç</label>
+                <input type="number" name="kurulu_guc" id="kurulu_guc" />
+            </div>
 
-        <label for="talep_guc">Talep güç</label>
-        <input type="number" name="talep_guc" id="talep_guc" />
+            <div class="form-row">
+                <label for="talep_guc">Talep güç</label>
+                <input type="number" name="talep_guc" id="talep_guc" />
+            </div>
 
-        <label for="mesken_guc">Mesken güç</label>
-        <input type="number" name="mesken_guc" id="mesken_guc" />
+            <div class="form-row">
+                <label for="mesken_guc">Mesken güç</label>
+                <input type="number" name="mesken_guc" id="mesken_guc" />
+            </div>
 
-        <label for="mesken_disi_guc">Mesken dışı güç</label>
-        <input type="number" name="mesken_disi_guc" id="mesken_disi_guc" />
+            <div class="form-row">
+                <label for="mesken_disi_guc">Mesken dışı güç</label>
+                <input type="number" name="mesken_disi_guc" id="mesken_disi_guc" />
+            </div>
 
-        <input type="submit" value="Gönder" />
-    </form>
+            <div class="form-row">
+                <input type="submit" value="Gönder" />
+            </div>
+        </form>
+    </div>
 
     <div id="yanit"></div>
 </body>
