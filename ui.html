@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>div2 Projesi PrototipV3</title>
+    <title>Kullanıcı Arayüzü</title>
     <style>
         body {
             font-family: sans-serif;
@@ -36,13 +36,25 @@
             border: none;
             cursor: pointer;
         }
+
+        .karekod {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
-    <h1>div2 Projesi PrototipV3</h1>
+    <h1>Kullanıcı Arayüzü</h1>
 
     <div class="form-container">
         <form action="/" method="post">
+            <div class="form-row">
+                <div class="karekod">
+                    <img src="https://chelewy.github.io/diV2/qrcode.php?url=https://chelewy.github.io/diV2/ui.html" alt="QR Kodu" />
+                </div>
+            </div>
+
             <div class="form-row">
                 <label for="il">İl</label>
                 <input type="text" name="il" id="il" />
