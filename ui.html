@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6Sigma_diV2 Prototip</title>
+    <title>Makina Modeli Kullanıcı Arayüzü</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -20,7 +20,7 @@
         h1 {
             color: #333;
             text-align: center;
-            font-size: 24px; /* küçültülen başlık fontu */
+            font-size: 24px;
             margin-bottom: 10px;
         }
 
@@ -44,7 +44,7 @@
             font-size: 14px;
         }
 
-        input {
+        select, input {
             width: 100%;
             padding: 8px;
             margin-bottom: 16px;
@@ -78,7 +78,7 @@
     </style>
 </head>
 <body>
-    <h1>6Sigma diV2 Prototip</h1>
+    <h1>Makina Modeli Kullanıcı Arayüzü</h1>
     
     <form id="modelForm">
         <div>
@@ -104,10 +104,10 @@
             <input type="number" id="BOLGE_KIRSAL" value="0" required>
 
             <label for="il">il:</label>
-            <input type="text" id="il" value="ANKARA" required>
+            <select id="il" onchange="updateIlceler()" required></select>
 
-            <label for="mah">mah:</label>
-            <input type="text" id="mah" value="HACETTEPE" required>
+            <label for="mahalle">mahalle:</label>
+            <select id="mahalle" required></select>
         </div>
 
         <div>
@@ -133,7 +133,7 @@
             <input type="number" id="KENTALTI" value="0" required>
 
             <label for="ilce">ilce:</label>
-            <input type="text" id="ilce" value="ALTINDAĞ" required>
+            <select id="ilce" onchange="updateMahalleler()" required></select>
 
             <button type="button" onclick="submitForm()">Modeli Çalıştır</button>
         </div>
@@ -142,6 +142,72 @@
     <div id="result"></div>
 
     <script>
+        var outputJson = {
+            'ANKARA': {
+                'ilçeler': [
+                    {
+                        'İLÇE': 'AKYURT',
+                        'MAHALLE': ['AHMETADİL', 'ATATÜRK', 'BALIKHİSAR', 'BEYAZIT', 'BÜĞDÜZ']
+                    },
+                    {
+                        'İLÇE': 'ALTINDAĞ',
+                        'MAHALLE': ['ATIFBEY', 'AYDINCIK', 'AYDINLIKEVLER', 'BARAJ', 'BAŞPINAR']
+                    }
+                    // Diğer ilçe verileri buraya eklenecek
+                ]
+            }
+            // Diğer il verileri buraya eklenecek
+        };
+
+        var ilSelect = document.getElementById('il');
+        var ilceSelect = document.getElementById('ilce');
+        var mahalleSelect = document.getElementById('mahalle');
+
+        // İl ve ilçe seçeneklerini güncelleyen fonksiyonlar
+        function updateIlceler() {
+            // Örnek il ve ilçe verileri
+            var iller = Object.keys(outputJson);
+            updateSelectOptions(ilceSelect, []);
+
+            // İl seçeneklerini güncelle
+            updateSelectOptions(ilSelect, iller);
+
+            // İlçe seçeneklerini güncelle
+            updateIlceOptions();
+        }
+
+        function updateIlceOptions() {
+            var selectedIl = ilSelect.value;
+            var ilceler = outputJson[selectedIl].ilçeler;
+            var ilceOptions = ilceler.map(function(ilceData) {
+                return ilceData.İLÇE;
+            });
+            updateSelectOptions(ilceSelect, ilceOptions);
+
+            // Mahalle seçeneklerini güncelle
+            updateMahalleler();
+        }
+
+        function updateMahalleler() {
+            var selectedIl = ilSelect.value;
+            var selectedIlce = ilceSelect.value;
+            var mahalleler = outputJson[selectedIl].ilçeler.find(function(ilceData) {
+                return ilceData.İLÇE === selectedIlce;
+            }).MAHALLE;
+            updateSelectOptions(mahalleSelect, mahalleler);
+        }
+
+        function updateSelectOptions(selectElement, options) {
+            selectElement.innerHTML = '';
+            options.forEach(function(option) {
+                var optionElement = document.createElement('option');
+                optionElement.value = option;
+                optionElement.text = option;
+                selectElement.add(optionElement);
+            });
+        }
+
+        // Modeli çalıştıran fonksiyon
         function submitForm() {
             var input_data_for_model = {
                 'AYD_SAYI': document.getElementById('AYD_SAYI').valueAsNumber,
@@ -178,6 +244,9 @@
 
             xhr.send(input_json);
         }
+
+        // İlk kez sayfa yüklendiğinde il seçeneklerini doldur
+        updateIlceler();
     </script>
 </body>
 </html>
