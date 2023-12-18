@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6Sigma DiV2 Prototip</title>
+    <title>Makina Modeli Kullanıcı Arayüzü</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -14,12 +14,14 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 80vh;
+            height: 100vh;
         }
 
         h1 {
             color: #333;
             text-align: center;
+            font-size: 24px; /* küçültülen başlık fontu */
+            margin-bottom: 10px;
         }
 
         form {
@@ -76,62 +78,62 @@
     </style>
 </head>
 <body>
-    <h1>6Sigma DiV2 Prototip</h1>
+    <h1>Makina Modeli Kullanıcı Arayüzü</h1>
     
     <form id="modelForm">
         <div>
             <label for="AYD_SAYI">AYD_SAYI:</label>
-            <input type="number" id="AYD_SAYI" required>
+            <input type="number" id="AYD_SAYI" value="0" required>
 
             <label for="KAMU_SAYI">KAMU_SAYI:</label>
-            <input type="number" id="KAMU_SAYI" required>
+            <input type="number" id="KAMU_SAYI" value="0" required>
 
             <label for="MESKEN_SAYI">MESKEN_SAYI:</label>
-            <input type="number" id="MESKEN_SAYI" required>
+            <input type="number" id="MESKEN_SAYI" value="10" required>
 
             <label for="SANAYI_SAYI">SANAYI_SAYI:</label>
-            <input type="number" id="SANAYI_SAYI" required>
+            <input type="number" id="SANAYI_SAYI" value="0" required>
 
             <label for="TARIMSAL_SAYI">TARIMSAL_SAYI:</label>
-            <input type="number" id="TARIMSAL_SAYI" required>
+            <input type="number" id="TARIMSAL_SAYI" value="0" required>
 
             <label for="BN_SAYI">BN_SAYI:</label>
-            <input type="number" id="BN_SAYI" required>
+            <input type="number" id="BN_SAYI" value="2" required>
 
             <label for="BOLGE_KIRSAL">BOLGE_KIRSAL:</label>
-            <input type="number" id="BOLGE_KIRSAL" required>
+            <input type="number" id="BOLGE_KIRSAL" value="0" required>
 
             <label for="il">il:</label>
-            <input type="text" id="il" required>
+            <input type="text" id="il" value="ANKARA" required>
 
             <label for="mah">mah:</label>
-            <input type="text" id="mah" required>
+            <input type="text" id="mah" value="HACETTEPE" required>
         </div>
 
         <div>
             <label for="AYD_KG">AYD_KG:</label>
-            <input type="number" step="0.01" id="AYD_KG" required>
+            <input type="number" step="0.01" id="AYD_KG" value="0.0" required>
 
             <label for="KAMU_KG">KAMU_KG:</label>
-            <input type="number" step="0.01" id="KAMU_KG" required>
+            <input type="number" step="0.01" id="KAMU_KG" value="0.0" required>
 
             <label for="MESKEN_KG">MESKEN_KG:</label>
-            <input type="number" step="0.01" id="MESKEN_KG" required>
+            <input type="number" step="0.01" id="MESKEN_KG" value="200.0" required>
 
             <label for="SANAYI_KG">SANAYI_KG:</label>
-            <input type="number" step="0.01" id="SANAYI_KG" required>
+            <input type="number" step="0.01" id="SANAYI_KG" value="0.0" required>
 
             <label for="TARIMSAL_KG">TARIMSAL_KG:</label>
-            <input type="number" step="0.01" id="TARIMSAL_KG" required>
+            <input type="number" step="0.01" id="TARIMSAL_KG" value="0.0" required>
 
             <label for="BOLGE_KENTSEL">BOLGE_KENTSEL:</label>
-            <input type="number" id="BOLGE_KENTSEL" required>
+            <input type="number" id="BOLGE_KENTSEL" value="1" required>
 
             <label for="KENTALTI">KENTALTI:</label>
-            <input type="number" id="KENTALTI" required>
+            <input type="number" id="KENTALTI" value="0" required>
 
             <label for="ilce">ilce:</label>
-            <input type="text" id="ilce" required>
+            <input type="text" id="ilce" value="ALTINDAĞ" required>
 
             <button type="button" onclick="submitForm()">Modeli Çalıştır</button>
         </div>
